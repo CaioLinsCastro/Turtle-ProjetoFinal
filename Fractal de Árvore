@@ -1,0 +1,36 @@
+import turtle
+
+caneta = turtle.Turtle() #chamada da caneta com o desenho da tartaruga
+tela = turtle.Screen() #determina a tela
+
+tela.bgcolor ("Black") #cor de fundo
+
+cores = ["White", "Green", "Yellow", "Purple", "Red", "Green", "Yellow", "Purple", "Red", "Green", "Yellow", "Purple"] #muda as cores por interação do programa
+#lista grande para assim não quebrar o código na hora de desenhar nosso fractal
+n = 4
+
+
+caneta.speed(0) #propriedades das canetas em turtle (speed é a velocidade que ela se passa, quanto maior, mais lento)
+caneta.width(3) #propriedades das canetas em turtle (width é a espessura da caneta, quanto maior, mais grosso)
+angulo = 45 #dando o ângulo necessário para o fractal, para assim a árvore se curvar e ficar nesse aspecto mais de uma árvore pitagórica
+
+def arvore (tam, ramificações): #tam é o tamanho da árvore e ramificações são quantos galhos fazer de dentro do círculo para fora
+
+    if ramificações > 0: #não ter risco de continuar o código com o programa já acabado
+        caneta.forward(tam)
+        caneta.right(angulo)
+        arvore(0.8*tam, ramificações-1)
+        caneta.left(2*angulo)
+        arvore(0.8*tam, ramificações-1)
+        caneta.right(angulo)
+        caneta.forward (-tam)
+
+
+for i in range(n): #repete para as "n" cores
+    caneta.shape()
+    caneta.pencolor(cores[i])
+    arvore(50,7) 
+#aqui acima que fazemos a chamada para o desenho do fractal, pode fazer o que quiser com os valores de tamanho e ramificações
+    caneta.left(360/n) #após cada execução, viramos a caneta em 360/n graus para assim dar continuidade até o inicial = final
+
+turtle.done()
