@@ -1,0 +1,26 @@
+#Código exemplo = > Turtle Stamp
+
+#cada código turtle tem de começar com o import, para importarmos a biblioteca#
+import turtle
+
+caneta = turtle.Turtle() #definição da caneta
+
+caneta.shape("turtle") #escolhemos assim o formato da caneta como uma tartaruga
+
+caneta.fillcolor("Green") #a cor da minha tartaruga vai ser verde
+
+caneta.speed (5) #altera a velocidade da nossa tartaruga para podermos ver bem ela!
+
+tela = turtle.Screen() #determinamos a tela 
+
+tela.bgcolor("Slate Blue") #mudamos a cor da tela de fundo para um ciano; bg = background = tela de fundo
+
+
+for step in range(0, 90): #desenha o círculo em 3 voltas
+    caneta.forward(10) #anda 10 pixeis pra frente
+    caneta.left(4) #anda 4 pixeis pra cima
+
+    if step % 10 == 0: #a cada 20 passos, vamos marcar a tartaruga no desenho
+        caneta.stamp() #assim marcamos a tartaruga!
+        
+turtle.done() #código feito, vamos testar??
